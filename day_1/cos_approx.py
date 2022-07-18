@@ -3,18 +3,26 @@
 
 cosine approximation function
 """
-__author__ = 'Qusai Al Shidi'
-__email__ = 'qusai@umich.edu'
+__author__ = 'Neha Srivastava'
+__email__ = 'ns1202@usnh.edu'
 
 from math import factorial
 from math import pi
 
+#
 
-def cos_approx(x, accuracy=10):
-    """
-    """
-    return 
+def cos_approx(x, accuracy=50):
+    """Finding Cosine taylor expansion"""
+    cos_list = [integral(x,n) for n in range(accuracy)]         
+    cos_approx = sum(cos_list)
+    return cos_approx
 
+def integral(x,n):
+    """calaculating integral seperately for each n"""
+    x_sq = x**2         
+    fact_2n = factorial(2*n)
+    value = (((-1)**n) * (x_sq**n)) / fact_2n
+    return value
 
 
 # Will only run if this is run from command line as opposed to imported
