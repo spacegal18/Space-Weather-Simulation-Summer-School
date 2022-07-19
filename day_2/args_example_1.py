@@ -28,7 +28,9 @@ def parse_args():
     """
     
     parser = argparse.ArgumentParser(description = 'My Example Code')
+    """purpose of code for other people,   python ./filename --help or -h"""
 
+    
     parser.add_argument('in_var_1', nargs = 1, \
                         help = 'Input Variable - only need one!')
 
