@@ -29,7 +29,6 @@ def parse_args():
     return args
 
 
-
 def plot_tec(dataset, quantity='tec', figsize=(12,6)):
     """Defining a plotting function to avoid writing/copying plot code everytime
     pcolormesh creates a pseudocolor plot with a non-regular rectangular grid of lon,lat dimension.
