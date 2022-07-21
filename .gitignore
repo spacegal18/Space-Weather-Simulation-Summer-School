@@ -1,1 +1,6 @@
 .DS_STORE
+*.npz
+*.npy
+*.mat
+*.dat
+*.zip
