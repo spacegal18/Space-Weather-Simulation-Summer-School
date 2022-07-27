@@ -24,6 +24,9 @@ import matplotlib.pyplot as plt
 def parse_args():
     parser = argparse.ArgumentParser(description = \
                                    'Plotting DST file and saving using parse')
+    parser.add_argument('-filein', \
+                    help = 'the file name for plot', \
+                    type = str)
     parser.add_argument('-fileout', \
                     help = 'the file name for plot', \
                     type = str)
@@ -65,9 +68,14 @@ def read_ascii_file(filename,index):
 
 #Main body
 
-file = "omni_min_def_aqukvr4tR_.lst"
+
+args = parse_args()
+
+filein = args.filein
+
+#file = "omni_min_def_aqukvr4tR_.lst"
 index =-1
-data_dic= read_ascii_file(file, index)
+data_dic= read_ascii_file(filein, index)
 #print(data_dic["time"])
 #print(data_dic["year"])
 #print(data_dic["day"])
@@ -112,7 +120,7 @@ ax.set_ylabel('SYMH(nT)')
 ax.grid(True)
 ax.legend()
 
-args = parse_args()
+
 
 fileout = args.fileout
 
