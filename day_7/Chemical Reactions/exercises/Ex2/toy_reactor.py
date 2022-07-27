@@ -12,6 +12,10 @@ import runge_kutta as rk
 #    k - numpy array carrying the rate coefficients k1 = 100, k2=0.25, k3=1
 #    c_0 - initial composition, i.e., c_0(A) = 1, c_0(B)=c_0(C)=0.0
 
+
+S = np.array([[-1,0,1],[1,-1,1],[0,2,-2]])
+k = np.array([100.0, 0.25, 1.0])    #rate coefficients
+c_0 = np.array([1.0,0.0,0.0])
 def reaction_rates(c,k):
     """
         Function implementing the reaction rate computation of our toy reactor
@@ -23,7 +27,7 @@ def reaction_rates(c,k):
         outputs:
             reaction rates (numpy array)
     """
-    return ... # please complete this function
+    return np.array([k[0]*c[0], k[1]*c[1], k[2]*(c[2])**2]) # please complete this function
 
 def reactor(c,t,k,S):
     """
@@ -33,15 +37,16 @@ def reactor(c,t,k,S):
             c - concentration of species  (numpy array)
             t - time 
             k - rate constants (organized as list)
-            S - stoichiometry matrix (numpy array)
+            S - stoichiometry matrix (numpy array)(3,3)
 
         outputs: 
             dc/dt - numpy array
+            @ - matrix multipliaction
     """
-    return ... # please complete this function
+    return S @ reaction_rates(c, k) # please complete this function
 
 # Please play around with the step size to study the effect on the solution
-h = 1e-3
+h = 1e-6   #step size
 
 ########################################
 ### hereafter no more code modification necessary
@@ -63,6 +68,8 @@ trajectory, time_points = rk.integrate(lambda c, t: reactor(c, t, k, S),
 
 species_names = ["A", "B", "C"]
 colors = ["red", "blue", "black"]
+
+
 
 fig, axs = plt.subplots(2)
 ax = axs[0]
