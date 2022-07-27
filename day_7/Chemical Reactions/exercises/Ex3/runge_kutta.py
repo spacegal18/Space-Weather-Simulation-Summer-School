@@ -69,13 +69,22 @@ def adaptive_explicit_RK_stepper(x,t,f,h,a,b,c,b_control):
             a - coefficients of Runge-Kutta method (organized as list-of-list (or vector-of-vector))
             b - weights of Runge-Kutta method (list/vector)
             c - nodes of Runge-Kutta method (including 0 as first node) (list/vector)
-            b - weights of control Runge-Kutta method (list/vector)
+            b_control - weights of control Runge-Kutta method (list/vector)
 
         outputs: 
             x_new - estimate of state at time t + h
             error - estimate of the accuracy
     """
-    return ... # please complete this function 
+    s = len(c)
+    ks = [f(x,t)]
+    x_new = x + h*b[0]*ks[0]
+    error = h * (b[0]-b_control[0])*ks[0]
+    while 
+    for i in range(s-1):
+        y = x + h*sum(a[i][j]*ks[j] for j in range(i+1))
+        ks.append(f(y, t+h*c[i+1]))
+        x_new += h*b[i+1]*ks[-1]
+    return x_new # please complete this function 
                # hint: 
                # It should be a rather simple adaptation of 
                # explicit_RK_stepper
