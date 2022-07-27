@@ -126,7 +126,7 @@ import matplotlib.pyplot as plt
 # Before we can visualize our density data, we first need to generate the discretization grid of the density data in 3D space. We will be using np.linspace to create evenly sapce data between the limits.
 
 
-#lST corresponds to longitude  #the discretization is done in the metadata itslef
+#lST corresponds to local solar time, longitude  #the discretization is done in the metadata itslef
 localSolarTimes_JB2008 = np.linspace(0,24,24)       #somethimes it is included in the metadata not in this case
 #print(localSolarTimes_JB2008)
 latitudes_JB2008 = np.linspace(-87.5,87.5,20)
