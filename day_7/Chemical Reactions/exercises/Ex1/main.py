@@ -8,7 +8,7 @@ import dormand_prince as dp
 import runge_kutta as rk
 
 def dormand_prince_integrator(f, x, t, h):
-    return ... # please complete this function
+    return rk.explicit_RK_stepper(f, x, t, h, dp.a, dp.b, dp.c) # please complete this function
                # so it returns the prediction for the 
                # Dormand-Prince method 
                # To that end, use rk.explicit_rk_stepper!
@@ -48,3 +48,4 @@ ax.set_xlabel("time")
 ax.set_ylabel("x(t)")
 ax.plot(time_points, trajectory, linewidth=2, color="red", marker = "o")
 ax.plot(time_points_analytical, trajectory_analytical, linewidth=2, color="black", linestyle="dashed")
+ax.legend(['Explicit RK stepper trajectory', 'Analytical trajectory'])
