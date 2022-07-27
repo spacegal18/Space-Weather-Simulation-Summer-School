@@ -16,7 +16,15 @@ def explicit_RK_stepper(f,x,t,h,a,b,c):
         outputs: 
             x_hat - estimate of the state at time t+h
     """
-    return ... # please complete this function 
+    s = len(b)
+    ks = [f(x,t)]  #the 1st k1
+    x_hat = x + h*b[0]*ks[-1] 
+    for i in range(s-1):
+        y = x + h*sum(a[i][j]*ks[j] for j in range(i+1))
+        """since a is list of list we can't use [:], rather is used in numpy"""
+        ks.append(f(y, t + c[i+1]*h))
+    x_hat  = x + h*sum(b[i]*ks[i] for i in range(s))    
+    return x_hat # please complete this function 
 
 def integrate(f, x0, tspan, h, step):
     """
