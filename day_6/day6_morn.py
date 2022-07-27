@@ -258,7 +258,7 @@ plt.ylabel(r'$\dot \theta$')
 #%%
 
 """Lorentz63
-Assignment 1a"""
+Assignment 1a - Using one initial values of x,y,z """
 from mpl_toolkits.mplot3d import Axes3D
 
 def lorenz63(x,t,sigma,rho,beta):
@@ -323,6 +323,8 @@ ax = plt.axes(projection='3d')
 for i in range(rand_pts):
     solution = odeint(lorenz63, x0[:,i], time, args=(sigma,rho,beta))    
     ax.plot3D(solution[:,0],solution[:,1],solution[:,2])
+    
+plt.
 
 
 
