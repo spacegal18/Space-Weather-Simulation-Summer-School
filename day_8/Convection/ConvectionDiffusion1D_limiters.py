@@ -28,7 +28,7 @@ nu = 0.01
 c = 2
 
 "Scheme parameters"
-beta = 1
+beta = 2
 
 "Number of points"
 N = 32
@@ -36,7 +36,7 @@ Dx = 1/N
 x = np.linspace(0,1,N+1)
 
 "Time parameters"
-dt = 0.1
+dt = 0.01
 time = np.arange(0,3+dt,dt)
 nt = np.size(time)
 
@@ -75,7 +75,7 @@ for it in range(nt-1):
     
     Advp = cp*(np.diag(1-phi) - np.diag(1-phip,-1))
     Advm = cm*(np.diag(1-phi) - np.diag(1-phim,1))
-    Alow = Advp-Advm
+    Alow = Advp-Advm #advection term for low order scheme
     "Centered differences"
     Advp = -0.5*c*np.diag(phip,-1)
     Advm = -0.5*c*np.diag(phim,1)
